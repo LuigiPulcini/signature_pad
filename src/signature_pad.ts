@@ -563,7 +563,7 @@ export default class SignaturePad {
       ` viewBox="${minX} ${minY} ${maxX} ${maxY}"` +
       ` width="${maxX}"` +
       ` height="${maxY}"` +
-      ` stroke="${_this.penColor}"` +
+      ` stroke="${this.penColor}"` +
       ` stroke-linecap="round"` +
       ` fill="none"` +
       '>';
