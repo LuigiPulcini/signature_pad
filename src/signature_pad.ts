@@ -531,14 +531,11 @@ export default class SignaturePad {
             `M ${curve.startPoint.x.toFixed(3)},${curve.startPoint.y.toFixed(
               3,
             )} ` +
-            `C ${curve.control1.x.toFixed(3)},${curve.control1.y.toFixed(3)} ` +
-            `${curve.control2.x.toFixed(3)},${curve.control2.y.toFixed(3)} ` +
-            `${curve.endPoint.x.toFixed(3)},${curve.endPoint.y.toFixed(3)}`;
+            `C ${curve.control1.x.toFixed(1)},${curve.control1.y.toFixed(1)} ` +
+            `${curve.control2.x.toFixed(1)},${curve.control2.y.toFixed(1)} ` +
+            `${curve.endPoint.x.toFixed(1)},${curve.endPoint.y.toFixed(1)}`;
           path.setAttribute('d', attr);
-          path.setAttribute('stroke-width', (curve.endWidth * 2.25).toFixed(3));
-          path.setAttribute('stroke', color);
-          path.setAttribute('fill', 'none');
-          path.setAttribute('stroke-linecap', 'round');
+          path.setAttribute('stroke-width', (curve.endWidth * 2.25).toFixed(1));
 
           svg.appendChild(path);
         }
@@ -552,7 +549,7 @@ export default class SignaturePad {
         circle.setAttribute('r', dotSize.toString());
         circle.setAttribute('cx', point.x.toString());
         circle.setAttribute('cy', point.y.toString());
-        circle.setAttribute('fill', color);
+        circle.setAttribute('stroke-width', 0);
 
         svg.appendChild(circle);
       },
@@ -566,6 +563,9 @@ export default class SignaturePad {
       ` viewBox="${minX} ${minY} ${maxX} ${maxY}"` +
       ` width="${maxX}"` +
       ` height="${maxY}"` +
+      ` stroke="${_this.penColor}"` +
+      ` stroke-linecap="round"` +
+      ` fill="none"` +
       '>';
     let body = svg.innerHTML;
 
